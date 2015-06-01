@@ -9,7 +9,8 @@ module.exports = function(grunt) {
 			gameoflife: { title: "Game of Life", dark: false, icon: 'gameoflife' },
 			delauny: { title: "Delauny Triangulation", dark: true, icon: false }, 
 			stars: { title: "Stars", dark: true, icon: false },
-			lsystem: { title: "L-Systems & Euler Trees", dark: false, icon: 'lsystem' }
+			lsystem: { title: "L-Systems & Euler Trees", dark: false, icon: 'lsystem' }, 
+			verlet: { title: "Verlet Integration & Cloth Physics", dark: false, icon: false }
 		},
 		
 		htmlbuild: {
