@@ -1,0 +1,22 @@
+<p>Number of Triangles : <input id="triSlider" class="slider"/></p>
+<ul>
+	<li>
+		<button onclick="changeColor()" class="control-button btn btn-default">
+			CHANGE COLOU<b>R</b>
+		</button>
+	</li>
+		<br/>
+		<br/>
+		<div class="input-group" style="margin:auto">
+			<label class="radio-inline">
+				<input name="radioGroup" onclick="svg.onmousedown=insert;refresh()" id="insert" checked="checked" type="radio"> Insert Point on Click
+			</label>
+			<br/>
+			<label class="radio-inline">
+				<input name="radioGroup" onclick="svg.onmousedown=paint;refresh()" id="paint" type="radio"> Change Colour on Click
+			</label>
+			<label class="radio-inline">
+				<input name="radioGroup" onclick="svg.onmousedown=null;refresh()" id="move" type="radio"> Triangle Trail on Move
+			</label>
+		</div>
+</ul>

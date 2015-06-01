@@ -1,0 +1,11 @@
+<script id="polygon-template" type="text/x-handlebars-template">
+	<g class="polygon-container">
+		<polygon id="p{{j}}"
+			class="polygon"
+			points="{{#getPoints triangle}}{{/getPoints}}"
+			style="fill:{{fill}};" >
+		</polygon>
+	</g>
+</script>
+
+<svg id="svg" style="width:100%; height:100%; position:fixed;"></svg>

@@ -1,0 +1,127 @@
+@import 'theme';
+
+$width: 250px;
+$dark-color: rgba(255,255,255,0.3);
+$light-color: rgba(0,0,0,0.3);
+
+.slideLeft {
+		@include cross-browser(transform, translateX(-250px));
+}
+
+@-webkit-keyframes centralise { 
+		from { padding-bototm: 4px; }
+		to { padding-bottom: 8px; }
+}
+
+.rotateRight .control-nav i {
+				@include cross-browser(transform, rotate(-180deg));		
+}
+
+.controls, .control-nav i {
+		@include cross-browser(transition-duration, 0.5s);
+		@include cross-browser(transition-timing-function, ease-in-out);
+		@include cross-browser(transition-property, transform);		
+}
+
+.controls {
+		z-index: 20;
+		position: absolute;
+		background-color: $light-color;
+
+		&.dark {
+				background-color: $dark-color;
+		}
+}
+
+.control-container {
+		text-align: center;
+		padding: 10px;
+		width: $width;
+
+		ul {
+				margin: auto;
+		}
+
+		.dark button {
+ 				background-color: $light-color;
+		}		
+		
+		button {
+				background-color: $dark-color;
+				padding: 5px 20px;
+
+				width: 70%;
+
+				&:hover {
+						background-color: rgba(165,165,165,1)
+				}
+		}
+}
+
+button {
+		border: none !important;
+		outline: none;
+}
+
+.control-nav {
+		position: absolute;
+		top: 0; left: $width;
+		width: 30px; height: 50px;
+		background-color: rgba(0,0,0,0.3);
+		color: #2a2a2a;
+		font-size: 24px;
+
+}
+
+.dark .control-nav {
+		background-color: rgba(255,255,255,0.3);
+		color: #bfbfbf;
+}
+
+.canvas-container {
+		top: 0;
+		left: 0;
+		position: fixed;
+		z-index: -2;
+}
+
+.slider-handle {
+		background-color: #2a2a2a;		
+		background-image: none;
+}
+
+body {
+		color: #2a2a2a;
+		
+		.dark { color: #bfbfbf; }
+}
+
+.dark .slider-handle {
+		background-color: rgba(165,165,165,1);
+}
+
+.footer {
+		color: rgba(0,0,0,0.2);
+		position: absolute;
+		bottom: 20px;
+		width: 100%;
+		text-align: center;
+		&.dark {
+				color: rgba(255,255,255,0.2);
+		}
+}
+
+.btn-group-vertical {
+		text-align: center;
+		margin: auto;
+		width: 70%;
+		display: block;
+		padding: 20px 0;
+}
+
+.btn-group-vertical .btn { color: #2a2a2a !important; }
+
+.btn-group-vertical .btn:focus,.btn-group-vertical .btn:active:focus,.btn-group-vertical .btn.active:focus,
+.btn-group-vertical .btn.focus,.btn-group-vertical .btn:active.focus, .btn-group-vertical .btn.active.focus {
+		background-color: #565656 !important;
+}

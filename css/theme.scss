@@ -1,0 +1,36 @@
+$primary-color:#21b2a6;
+
+$dark-color: #2e3842;
+$light-color: #fafafa;
+
+@mixin fade($type,$delay, $duration, $easing) {
+		@include cross-browser(animation, fade+$type $delay $duration $easing both)
+}
+
+@mixin cross-browser($property,$args) {
+		-webkit-#{$property}: $args;
+		-moz-#{$property}: $args;
+		-ms-#{$property}: $args;
+		-o-#{$property}: $args;
+		#{$property}: $args;
+}
+
+@mixin full() {
+		top: 0; bottom: 0; left: 0; right: 0;
+}
+
+
+@-webkit-keyframes fadeIn {
+		0% { opacity: 0 }
+		100% { opacity: 1 }
+}
+
+@-webkit-keyframes fadeOut {
+		0% { opacity: 1 }
+		100% { opacity: 0 }
+}
+
+@-webkit-keyframes fadeInUp {
+		0% {opacity:0; @include cross-browser(transform, translateY(25px))}
+		100% {opacity:1; @include cross-browser(transform, translateY(0))}
+}

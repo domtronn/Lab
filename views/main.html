@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-script-type" content="text/javascript" />
+		<meta http-equiv="content-style-type" content="text/css" />
+		<meta http-equiv="content-language" content="en" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<meta name="author" content="Dom Charlesworth" />
+		
+		<!-- dev:process -->		
+		<meta name="description" content="Experiment with <%= title %>" />
+		
+		<title>Dom Charlesworth - <%= title %></title>
+		
+		<link rel="shortcut icon" href="../css/<%= icon !== 'false' ? icon + '.ico' : 'favicon.ico'%>" />
+		<!-- /dev -->
+		
+		<link href='http://fonts.googleapis.com/css?family=Raleway:100, 300,600,700' rel='stylesheet' type='text/css'/>
+		
+		<!-- build:style libs -->
+		<link type="text/css" rel="stylesheet" href="../css/lib/bootstrap.min.css" />
+		<link type="text/css" rel="stylesheet" href="../css/lib/bootstrap-slider.min.css" />
+    <link type="text/css" rel="stylesheet" href="../css/lib/font-awesome.min.css" />
+		<!-- /build -->
+		
+		<!-- build:style main -->
+    <link type="text/css" rel="stylesheet" href="../css/labcontrols.css" />
+    <link type="text/css" rel="stylesheet" href="../css/style.css" />
+    <link type="text/css" rel="stylesheet" href="../css/theme.css" />
+		<!-- /build -->
+		
+		<!-- build:script libs -->
+    <script type="text/javascript" src="../js/lib/handlebars-3.0.1.min.js"></script>
+		<script type="text/javascript" src="../js/lib/bootstrap-slider-4.8.1.min.js"></script>
+		<!-- /build -->
+		
+	</head>
+	<body onresize="resize()">
+		
+		<!-- dev:process -->		
+		<div id="controls" class="<%= dark === 'true' ? 'dark controls' : 'controls' %>">
+		<!-- /dev -->
+			<div style="text-align:center"> <span style="font-style:italic">Press <b>C</b> to hide</span> </div>
+			<div class="control-container">
+				<!-- dev:section controls -->
+				<!-- /dev -->
+			</div>
+
+			<button id="control-nav" class="control-nav">
+				<i class="fa fa-chevron-left"></i>
+			</button>
+		</div>
+		
+		<!-- dev:section optional body -->
+		<!-- /dev -->
+
+		<div class="canvas-container">
+			<canvas id="canvas"></canvas>
+		</div>
+		
+		<!-- dev:process -->
+		<div class="<%= dark === 'true' ? 'dark footer' : 'footer' %>">
+      Copyright © 2015 Dominic Charlesworth
+      <br>
+      <span style="font-size: 10px; font-style:italic">HTML5 | CSS3 | JavaScript</span>
+    </div>
+		<!-- /dev -->
+
+		<!-- build:script main -->
+		
+		<!-- dev:section scripts -->
+		<!-- /dev -->
+		
+		<script type="text/javascript" src="../js/control.js"></script>
+
+		<!-- /build -->
+		
+	</body>
+</html>

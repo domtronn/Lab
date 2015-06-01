@@ -1,0 +1,5 @@
+<script id="patterns-template" type="text/x-handlebars-template">
+	{{#list patterns}}{{/list}}
+</script>
+
+<div id="tooltip" class="show"> </div>

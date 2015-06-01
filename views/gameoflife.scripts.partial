@@ -1,0 +1,7 @@
+<link type="text/css" rel="stylesheet" href="../css/gameoflife.css" />
+
+<script type="text/javascript" src="../js/gameoflife/cell.js"></script>
+<script type="text/javascript" src="../js/gameoflife/grid.js"></script>
+
+<script type="text/javascript" src="../js/gameoflife/pattern.handle.js"></script>
+<script type="text/javascript" src="../js/gameoflife/main.js"></script>

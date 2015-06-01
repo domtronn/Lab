@@ -1,0 +1,11 @@
+<link type="text/css" rel="stylesheet" href="../css/delauny.css" />
+
+<script type="text/javascript" src="../js/delauny/point.js"></script>
+<script type="text/javascript" src="../js/delauny/vector.js"></script>
+<script type="text/javascript" src="../js/delauny/triangle.js"></script>
+<script type="text/javascript" src="../js/delauny/triangulation.js"></script>
+<script type="text/javascript" src="../js/delauny/bowyerwatson.js"></script>
+
+<script type="text/javascript" src="../js/delauny/polygon.handle.js"></script>
+
+<script type="text/javascript" src="../js/delauny/main.js"></script>

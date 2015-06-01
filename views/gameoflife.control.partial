@@ -1,0 +1,37 @@
+<p>Scale : <input id="scaleSlider" class="slider"/></p>
+<ul>
+	<li>
+		<button onclick="gameoflife.clear()" class="control-button btn btn-default">
+			<i class="fa fa-refresh"></i> CLEA<b>R</b>
+		</button>
+	</li>
+	<li>
+		<button onclick="pause()" class="control-button btn btn-default">
+			<i class="fa fa-pause"></i> <b>P</b>AUSE
+		</button>
+	</li>
+	<li>
+		<button onclick="play()" class="control-button btn btn-default">
+			<i class="fa fa-play"></i> <b>P</b>LAY
+		</button>
+	</li>
+</ul>
+
+<span>Create a </span>
+<div id="patterns" class="select-container" style="width: 70%; margin:auto;"></div>
+<span> at position </span>
+
+<form class="form-inline" style="padding-bottom:10px;">
+	<input type="text" id="form-x" placeholder="0" style="width: 40px; text-align:center;"></input>
+	<input type="text" id="form-y" placeholder="0" style="width: 40px; text-align:center;"></input>
+</form>
+
+<ul>
+	<li>
+		<button onclick="generate()" class="control-button btn btn-default"><b>G</b>ENERATE</button>
+	</li>
+	<li>
+		<button onclick="toggleCoords()" type="button" class="control-button btn btn-default"><b>T</b>OGGLE COORDS</button>
+	</li>
+	
+</ul>

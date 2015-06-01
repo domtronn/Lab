@@ -1,0 +1,7 @@
+# Dot files
+.tern-project
+.tags
+
+# Directories
+*node_modules/*
+*dist/*

@@ -1,0 +1,28 @@
+<p>N : <input id="nSlider" class="slider"/></p>
+<p>A Angle : <input id="aSlider" class="slider"/></p>
+<p>B Angle : <input id="bSlider" class="slider"/></p>
+<p>C Angle : <input id="cSlider" class="slider"/></p>
+
+<p>A Scale : <input id="aScaleSlider" class="slider"/></p>
+<p>B Scale : <input id="bScaleSlider" class="slider"/></p>
+<p>C Scale : <input id="cScaleSlider" class="slider"/></p>
+
+<p>Initial Magnitude : <input id="MSlider" class="slider"/></p>
+
+<p>Magnitue Scale : <input id="mSlider" class="slider"/></p>
+<p>Width Scale : <input id="wSlider" class="slider"/></p>
+<p>Horizontal Offset : <input id="hSlider" class="slider"/></p>
+<p>Initial Angle : <input id="iSlider" class="slider"/></p>
+<ul>
+	<li>
+		<button onclick="resetVars();" class="control-button btn btn-default">
+			<i class="fa fa-refresh"></i> <b>R</b>ESET </button>
+	</li>
+	<li>
+		<button onclick="toggleDebug();" class="control-button btn btn-default">
+			<i class="fa fa-bug"></i> <b>D</b>EBUG </button>
+	</li>
+	<li>
+		<button onclick="toggleMouse();" class="control-button btn btn-default"> TOGGLE <b>M</b>OUSE</button>
+	</li>
+</ul>

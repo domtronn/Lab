@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAS;EACP,OAAO,EAAE,IAAI;EACb,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAC,KAAK;EACX,UAAU,EAAC,MAAM;EACjB,aAAa,EAAE,GAAG;EAClB,gBAAgB,EAAC,kBAAe;EAEhC,aAAO;IACL,OAAO,EAAE,KAAK",
+"sources": ["gameoflife.scss"],
+"names": [],
+"file": "gameoflife.css"
+}

@@ -1,0 +1,33 @@
+@import "theme.scss";
+
+#svg { background-color: #121212 }
+
+.hover {
+		
+		.polygon {
+				@include cross-browser(transition, opacity 300ms);
+				opacity: 0.6;
+		}
+
+		.polygon-container:hover .polygon {
+				opacity: 0.85 !important;
+		}
+		
+}
+
+.polygon-container {
+		pointer-events: visiblePainted;
+		cursor: hand;
+}
+
+.fadeIn {
+		@include fade(In, 0.4s, 0s, ease);
+}
+
+.fadeOut {
+		@include fade(Out, 0.4s, 0s, ease);
+}
+
+body {
+		background-color: #212121;
+}
