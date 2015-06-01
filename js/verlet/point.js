@@ -78,3 +78,18 @@ Point.prototype.resolve_constraints = function () {
 	});
 
 };
+Point.prototype.step = function ( d ) {
+
+	var d2 = d * d, nx, ny,
+			force = {x: 0, y: 70};
+
+	nx = this.x + (this.x - this.px) + (force.x * d2);
+	ny = this.y + (this.y - this.py) + (force.y * d2);
+
+	this.px = this.x;
+	this.py = this.y;
+
+	this.x = nx;
+	this.y = ny;
+
+};
