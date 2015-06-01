@@ -128,9 +128,9 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('default', ['build:dev']);
 
-	grunt.registerTask('build', ['clean:prebuild', 'concat', 'cssmin:libs', 'copy:dist', 'build:dist']);
+	grunt.registerTask('build', 'Complete distribution build', ['clean:prebuild', 'concat', 'cssmin:libs', 'copy:dist', 'build:dist']);
 
-	grunt.registerTask('build:dev', 'Build distribution', function () {
+	grunt.registerTask('build:dev', 'Build development views', function () {
 		
 		for (var key in grunt.config('projects')) {
 			grunt.task.run( 'htmlbuild:dev:' + key );
@@ -138,7 +138,7 @@ module.exports = function(grunt) {
 		
 	});
 	
-	grunt.registerTask('build:dist', 'Build distribution', function () {
+	grunt.registerTask('build:dist', 'Build distribution views & js', function () {
 		
 		for (var key in grunt.config('projects')) {
 			grunt.task.run( 'cssmin:main:' + key );
