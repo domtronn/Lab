@@ -22,11 +22,11 @@ module.exports = function(grunt) {
 					relative: true, 
 					scripts: {
             main: [ 'dist/js/<%= grunt.task.current.args[0] %>.min.js' ],
-						libs: [ 'dist/js/libs.min.js' ]
+						libs: [ 'dist/js/lablibs.min.js' ]
           }, 
 					styles: {
 						main: [ 'dist/css/<%= grunt.task.current.args[0] %>.min.css' ], 
-						libs: [ 'dist/css/libs.min.css' ]
+						libs: [ 'dist/css/lablibs.min.css' ]
 					}
 				}
 			},
@@ -66,7 +66,7 @@ module.exports = function(grunt) {
 		cssmin: {
 			libs: {
 				files: {
-					'dist/css/libs.min.css': [
+					'dist/css/lablibs.min.css': [
 						'css/lib/bootstrap.min.css', 
 						'css/lib/bootstrap-slider.min.css', 
 						'css/lib/font-awesome.min.css', 
@@ -92,7 +92,7 @@ module.exports = function(grunt) {
 					'js/lib/handlebars*.js',
 					'js/lib/bootstrap-slider*.js'
 				],
-				dest: 'dist/js/libs.min.js'
+				dest: 'dist/js/lablibs.min.js'
 			}
     },
 		
