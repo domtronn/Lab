@@ -94,12 +94,7 @@ function renderSquare( p ) {
 }
 renderSquare.prototype.COLOUR = '#9862a4';
 
-var boundsx = canvas.width - 1;
-var boundsy = canvas.height - 1;
-
-var mouse = {
-  nearestPoint: null
-};
+var mouse = { nearestPoint: null };
 
 canvas.onmousedown = function (evt) {
 
