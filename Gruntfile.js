@@ -91,7 +91,8 @@ module.exports = function(grunt) {
 			libs: {
 				src: [
 					'js/lib/handlebars*.js',
-					'js/lib/bootstrap-slider*.js'
+					'js/lib/bootstrap-slider*.js',
+					'js/lib/svginnerhtml*.js'
 				],
 				dest: 'dist/js/lablibs.min.js'
 			}
