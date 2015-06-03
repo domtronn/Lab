@@ -178,7 +178,6 @@ StarField.prototype.shift = function () {
 		yDelta = self.calculateDelta( yDelta );
 
 		self.reset();
-		self.
 		self.move( xDelta, yDelta );
 		
 	}, 50);
