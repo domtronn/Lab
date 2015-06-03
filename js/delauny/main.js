@@ -85,7 +85,7 @@ function renderPolygons(t) {
 
 function refresh(t) {
 	
-	svg.innerHTML = null;
+	svg.innerHTML = '';
 	renderPolygons(triangulation);
 	
 }
