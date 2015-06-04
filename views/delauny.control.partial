@@ -1,4 +1,4 @@
-<p>Number of Triangles : <input id="triSlider" class="slider"/></p>
+<p><span class="hide-phone">Number of </span>Triangles : <input id="triSlider" class="slider"/></p>
 <ul>
 	<li>
 		<button onclick="changeColor()" class="control-button btn btn-default">
@@ -6,7 +6,7 @@
 		</button>
 	</li>
 		<br/>
-		<br/>
+		<br class="hide-phone"/>
 		<div class="input-group" style="margin:auto">
 			<label class="radio-inline">
 				<input name="radioGroup" onclick="svg.onmousedown=insert;refresh()" id="insert" checked="checked" type="radio"> Insert Point on Click

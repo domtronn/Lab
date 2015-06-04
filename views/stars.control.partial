@@ -1,9 +1,9 @@
 <p style="color:#bfbfbf">Stars : <input id="starsSlider" class="slider"/></p>
 <p style="color:#bfbfbf">Layers : <input id="layersSlider" class="slider"/></p>
-<p style="color:#bfbfbf">Parallax Amount : <input id="parallaxSlider" class="slider"/></p>
+<p style="color:#bfbfbf">Parallax<span class="hide-phone"> Amount</span> : <input id="parallaxSlider" class="slider"/></p>
 <p style="color:#bfbfbf">Star Size : <input id="sizeSlider" class="slider"/></p>
-<p style="color:#bfbfbf">Zoom Speed : <input id="zoomSlider" class="slider"/></p>
-<p style="color:#bfbfbf">Shift Speed : <input id="shiftSlider" class="slider"/></p>
+<p style="color:#bfbfbf">Zoom<span class="hide-phone"> Speed</span> : <input id="zoomSlider" class="slider"/></p>
+<p style="color:#bfbfbf">Shift<span class="hide-phone"> Speed</span> : <input id="shiftSlider" class="slider"/></p>
 <ul>
 	<li><button onclick="sf.shift()" class="control-button btn btn-default"><b>S</b>HIFT</button></li>
 	<li><button onclick="sf.zoom()" class="control-button btn btn-default"><b>Z</b>OOM</button></li>
