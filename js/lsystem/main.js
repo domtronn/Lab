@@ -20,6 +20,7 @@ document.addEventListener( 'keydown', function ( e ) {
 	e.keyCode === 82 && resetVars() && redraw();
 	e.keyCode === 68 && toggleDebug();
 	e.keyCode === 77 && toggleMouse();
+	e.keyCode === 82 && toggleColour();
 
 });
 
@@ -37,11 +38,19 @@ function toggleMouse() {
 
 function toggleDebug() {
 	
+	LSystem.prototype.COLOURFUL = false;
 	LSystem.prototype.DEBUG = !LSystem.prototype.DEBUG;
 	redraw();
 	
 }
 
+function toggleColour() {
+	
+	LSystem.prototype.DEBUG = false;
+	LSystem.prototype.COLOURFUL = !LSystem.prototype.COLOURFUL;
+	redraw();
+	
+}
 
 function resize() {
 
