@@ -82,7 +82,7 @@ function resetVars() {
 	LSystem.prototype.M = Math.max( 100, Math.min( 250, ( canvas.width / 6 ) ) );
 	LSystem.prototype.M_SCALE = 0.75;
 	LSystem.prototype.LINE_WIDTH = 20;
-	LSystem.prototype.LINE_SCALE = 1;
+	LSystem.prototype.LINE_SCALE = Math.max( canvas.width / 1680, 0.2 )  ;
 	LSystem.prototype.INITIAL_ANGLE = 0;
 
 	redraw();
