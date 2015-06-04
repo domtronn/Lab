@@ -146,7 +146,7 @@ body {
 .hide-phone {
   display: inline; }
 
-@media (max-width: 667px) {
+@media (max-width: 1025px) {
   .hide-phone {
     display: none; }
 
