@@ -53,13 +53,13 @@ Vector.prototype.setColor = function ( col ) {
 	
 };
 
-Vector.prototype.draw = function ( scale ) {
+Vector.prototype.draw = function ( scale, colour ) {
 
 	ctx.beginPath();
 	ctx.moveTo( this.o.normal.x, this.o.normal.y );
-
-	ctx.strokeStyle = LSystem.prototype.DEBUG ? this.col : '#212121';
-
+	
+	ctx.strokeStyle = LSystem.prototype.DEBUG ? this.col : colour;
+		
 	this.m = scale ? this.m * mouse.n: this.m;
 	
 	ctx.lineTo( this.o.normal.x + ( this.d.x * this.m ), this.o.normal.y - ( this.d.y * this.m ) );
