@@ -5,3 +5,6 @@
 # Directories
 *node_modules/*
 *dist/*
+
+*.map*
+*sass-cache*
