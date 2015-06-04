@@ -20,7 +20,7 @@ document.addEventListener( 'keydown', function ( e ) {
 	e.keyCode === 82 && resetVars() && redraw();
 	e.keyCode === 68 && toggleDebug();
 	e.keyCode === 77 && toggleMouse();
-	e.keyCode === 82 && toggleColour();
+	e.keyCode === 70 && toggleColour();
 
 });
 
@@ -56,7 +56,7 @@ function resize() {
 
 	width = ctx.canvas.width = window.innerWidth,  height = ctx.canvas.height = window.innerHeight;
 	s6.setAttribute( 'max', width );
-	s6.setValue( width / 2 );y
+	s6.setValue( width / 2 );
 	Point.prototype.OFFSET = ( width / 2 );
 	redraw();
 	
