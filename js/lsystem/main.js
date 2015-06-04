@@ -79,7 +79,7 @@ function resetVars() {
 	C.prototype.COLOR = '#2ecc71';
 	
 	LSystem.prototype.N = 10;
-	LSystem.prototype.M = 250;
+	LSystem.prototype.M = Math.max( 100, Math.min( 250, ( canvas.width / 6 ) ) );
 	LSystem.prototype.M_SCALE = 0.75;
 	LSystem.prototype.LINE_WIDTH = 20;
 	LSystem.prototype.LINE_SCALE = 1;
@@ -146,13 +146,15 @@ sc_s.on('change', function (v) { C.prototype.SCALE = v.newValue; redraw(); });
 var s4 = new Slider('#mSlider',{ min:0.5, max:1, step:0.01, value:LSystem.prototype.M_SCALE});
 s4.on('change', function (v) { LSystem.prototype.M_SCALE = v.newValue; redraw(); });
 
-var s4_5 = new Slider('#MSlider',{ min:250, max:500, step:1, value:LSystem.prototype.M});
+var s4_5 = new Slider('#MSlider',{ min:100, max:500, step:1, value:LSystem.prototype.M});
 s4_5.on('change', function (v) { LSystem.prototype.M = v.newValue; redraw(); });
 
-var s5 = new Slider('#wSlider',{ min:0.5, max:1, step:0.01, value:LSystem.prototype.LINE_SCALE});
+var s5 = new Slider('#wSlider',{ min:0.2, max:1, step:0.01, value:LSystem.prototype.LINE_SCALE});
 s5.on('change', function (v) { LSystem.prototype.LINE_SCALE = v.newValue; redraw(); });
+
 var s6 = new Slider('#hSlider',{ min:0, max:width, step:1, value:Point.prototype.OFFSET});
 s6.on('change', function (v) { Point.prototype.OFFSET = v.newValue; redraw(); });
+
 var s7 = new Slider('#iSlider',{ min: -90, max:90, step:1, value:LSystem.prototype.INITIAL_ANGLE});
 s7.on('change', function (v) { LSystem.prototype.INITIAL_ANGLE = v.newValue; redraw(); });
 
