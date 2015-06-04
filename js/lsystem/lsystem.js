@@ -25,7 +25,7 @@ function darken( color, p ) {
 
 LSystem.prototype.getColour = function ( level ) {
 
-	return darken( this.BASE_COLOUR, level * -5 );
+	return darken( this.BASE_COLOUR, level * -8 );
 
 };
 
