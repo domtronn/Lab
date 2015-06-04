@@ -1,11 +1,12 @@
 @import 'theme';
 
 $width: 250px;
+$phone-width: 190px;
 $dark-color: rgba(255,255,255,0.3);
 $light-color: rgba(0,0,0,0.3);
 
 .slideLeft {
-		@include cross-browser(transform, translateX(-250px));
+		@include cross-browser(transform, translateX(-$width));
 }
 
 @-webkit-keyframes centralise { 
@@ -102,7 +103,7 @@ body {
 
 .footer {
 		color: rgba(0,0,0,0.2);
-		position: absolute;
+		position: fixed;
 		bottom: 20px;
 		width: 100%;
 		text-align: center;
@@ -124,4 +125,50 @@ body {
 .btn-group-vertical .btn:focus,.btn-group-vertical .btn:active:focus,.btn-group-vertical .btn.active:focus,
 .btn-group-vertical .btn.focus,.btn-group-vertical .btn:active.focus, .btn-group-vertical .btn.active.focus {
 		background-color: #565656 !important;
+}
+
+.show-phone { display: none; }
+.hide-phone { display: inline; }
+
+@media (max-width: 667px) {
+		.hide-phone { display: none; }
+    .show-phone { display: block; }
+
+		.slider {
+
+				width: 100px !important;
+				height: 15px !important;
+				position: absolute;
+				right: 15px;
+				
+		}
+
+		.slideLeft {
+				@include cross-browser(transform, translateX(-$phone-width));
+		}
+		
+		.control-nav {
+
+				left: $phone-width;
+				
+		}
+		
+		.control-container {
+
+				width: $phone-width;
+				
+				p {
+						text-align: right;
+						padding-right: 115px;
+						font-size: 10px;
+				}
+
+				button {
+
+						font-size: 10px;
+						padding: 2px 20px;
+						
+				}
+		}
+		
 }
