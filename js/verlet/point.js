@@ -4,7 +4,7 @@ function Point( x, y ) {
   this.previous = new Vector(x, y);
   
   this.pinned = false;
-  this.acc = (new Vector(0.0, 50)).scale(0.05 * 0.05);
+  this.acc = (new Vector(0.0, 20)).scale(0.05 * 0.05);
 
 }
 
