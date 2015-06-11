@@ -13,35 +13,6 @@ function Point( x, y ) {
 
 }
 
-Point.prototype.draw = function () {
-	
-	
-	this.constraints.forEach( function (c) {
-
-		c.draw();
-
-	});
-
-	ctx.beginPath();
-
-	var r = 2;
-	
-	if (this.pinned) {
-
-		ctx.fillStyle = "#212121";
-		r = 5;
-		
-	} else {
-
-		ctx.fillStyle = 'red';
-	}
-	
-	ctx.fill();
-
-	
-	return this;
-
-};
 Point.prototype.pin = function () {
 
 	this.pinned = true;
