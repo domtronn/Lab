@@ -1,0 +1,6 @@
+<script type="text/javascript" src="../js/verlet/point.js"></script>
+<script type="text/javascript" src="../js/verlet/vector.js"></script>
+<script type="text/javascript" src="../js/verlet/constraint.js"></script>
+<script type="text/javascript" src="../js/verlet/cloth.js"></script>
+
+<script type="text/javascript" src="../js/verlet/main.js"></script>
