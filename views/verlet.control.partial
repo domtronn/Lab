@@ -8,5 +8,8 @@
 	<li>
 		<button onclick="toggleColourful()" type="button" class="control-button btn btn-default">TOGGLE COLOU<b>R</b>S</button>
 	</li>
+	<li>
+		<button onclick="toggleRainbow()" type="button" class="control-button btn btn-default">TOGGLE RAINBOW</button>
+	</li>
 	
 </ul>
