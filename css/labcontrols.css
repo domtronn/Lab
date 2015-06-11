@@ -143,9 +143,6 @@ body {
 .show-phone {
   display: none; }
 
-.hide-phone {
-  display: inline; }
-
 @media (max-width: 1025px) {
   .hide-phone {
     display: none; }
@@ -155,7 +152,6 @@ body {
 
   .slider {
     width: 100px !important;
-    height: 15px !important;
     position: absolute;
     right: 15px; }
 
