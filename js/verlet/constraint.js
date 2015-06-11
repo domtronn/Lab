@@ -1,34 +1,38 @@
-var Constraint = function ( a, b ) {
+function Constraint( p1, p2 ) {
 
-	this.a = a;
-	this.b = b;
-	this.length = Math.sqrt( Math.pow(this.a.x - this.b.x, 2) + Math.pow(this.a.y - this.b.y, 2) );
+  this.p1 = p1;
+  this.p2 = p2;
 
-};
+  this.length = this.p1.getCurrent().minus(this.p2.getCurrent()).length();
+  
+}
 
-Constraint.prototype.draw = function () {
-	ctx.beginPath();
-	
-	ctx.moveTo( this.a.x, this.a.y );
-	ctx.lineTo( this.b.x, this.b.y );
+Constraint.prototype = {
+	resolve: function () {
 
-	ctx.stroke();
+		var p1 = this.p1.getCurrent(), 
+				p2 = this.p2.getCurrent(),
+				delta = p2.minus(p1);
+		
+		var d = delta.length();
+		var diff = (d - this.length) / ((this.length + d) * 2);
 
-};
+		var translation = delta.scale( 0.5 * diff );
+		
+		if ( !this.p1.pinned )
+			this.p1.setCurrent( p1.add(translation) );
+		
+		if ( !this.p2.pinned )
+			this.p2.setCurrent( p2.minus(translation) );
+	}, 
 
-Constraint.prototype.resolve = function () {
+	draw:  function () {
 
-	var diff_x  = this.a.x - this.b.x,
-			diff_y  = this.a.y - this.b.y,
-			dist    = Math.sqrt(diff_x * diff_x + diff_y * diff_y),
-			diff    = (this.length - dist) / dist;
-
-	var px = diff_x * diff * 0.5;
-	var py = diff_y * diff * 0.5;
-
-	this.a.x += px;
-	this.a.y += py;
-	this.b.x -= px;
-	this.b.y -= py;
-
+		ctx.beginPath();
+		ctx.strokeStyle = 'black';
+		ctx.moveTo(this.p1.getCurrent().x, this.p1.getCurrent().y);
+		ctx.lineTo(this.p2.getCurrent().x, this.p2.getCurrent().y);
+		ctx.stroke();  
+		
+	}
 };

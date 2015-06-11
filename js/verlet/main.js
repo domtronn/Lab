@@ -19,9 +19,31 @@ canvas = document.getElementById( 'canvas' );
 ctx = canvas.getContext( '2d' );
 
 width = ctx.canvas.width = window.innerWidth, height = ctx.canvas.height = window.innerHeight;
-cloth = new Cloth( 17, 10, { x: 20, y: 30 }, ctx );
+cloth = new Cloth( 13, 10, { x: 50, y: 30 }, ctx );
 
-var mouse = { nearestPoint: null };
+var mouse = { minPoint: null };
+
+
+canvas.onmousedown = function (evt) {
+	mouse.minPoint = cloth.getClosestPoint( new Vector(evt.offsetX, evt.offsetY) );
+};
+
+canvas.onmouseup = function (e) {
+	mouse.minPoint = null;
+};
+
+canvas.onmousemove = function (evt) {
+
+	if ( mouse.minPoint ) 
+		mouse.minPoint.setCurrent( new Vector(evt.offsetX, evt.offsetY) );
+	
+  evt.preventDefault();
+	
+};
+
+function toggleColourful() { Cloth.prototype.RENDER = !Cloth.prototype.RENDER; }
+function toggleConstraints() { Cloth.prototype.DRAW_CONSTRAINTS = !Cloth.prototype.DRAW_CONSTRAINTS; }
+function togglePoints() { Cloth.prototype.DRAW_POINTS = !Cloth.prototype.DRAW_POINTS; }
 
 (function animLoop() {
 
@@ -33,3 +55,5 @@ var mouse = { nearestPoint: null };
 	requestAnimFrame(animLoop);
 
 })();
+
+

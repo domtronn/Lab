@@ -6,6 +6,7 @@ function darken( color, p ) {
 var Cloth = function (width, height, spacing) {
 
 	this.points = [ ];
+	this.constraints = [ ];
 	this.spacing = spacing;
 	this.width = width;
 	this.height = height;
@@ -17,17 +18,14 @@ var Cloth = function (width, height, spacing) {
 
 		for (var i = 0, x = start_x; i < width; i++, x += spacing.x) {
 
-			var p = new Point(
-				x,
-				y + ((( width / 2 ) - Math.abs( i - ( width / 2 ) )) * 2)
-			);
+			var p = new Point(x, y + ((( width / 2 ) - Math.abs( i - ( width / 2 ) )) * 2));
 
 			if ( i !== 0 )
-				p.attach( this.points[ this.points.length - 1 ] );
+				this.constraints.push(new Constraint(p, this.points[ this.points.length - 1 ] ) );
 
 			if ( j !== 0 )
-				p.attach( this.points[ ( ( j - 1 ) * width ) + i ] );
-
+				this.constraints.push(new Constraint(p, this.points[ ( ( j - 1 ) * width ) + i ] ) );
+				
 			j === 0 &&
 				i % Math.floor( width / 4 ) === 0 && p.pin();
 
@@ -47,16 +45,19 @@ Cloth.prototype.renderSquare = function ( p ) {
 
 	if (!( col % this.width) || (row === this.height - 1))
 		return;
+	
+	var v = p.getCurrent();
+	var lower = this.points[ ((row + 1) * this.width) - 1 + col ].getCurrent();
+	var right = this.points[ ((row ) * this.width) + col ].getCurrent();
+	var lowerRight = this.points[ ((row + 1) * this.width) + col ].getCurrent();
 
-	var lower = this.points[ ((row + 1) * this.width) - 1 + col ];
-	var right = this.points[ ((row ) * this.width) + col ];
-	var lowerRight = this.points[ ((row + 1) * this.width) + col ];
-
-	var angle = Math.abs( (new Vector([p, lower])).dot(new Vector([p, right])) );
+	var angle = Math.abs(
+		v.minus(lower).dot(v.minus(right))
+	);
 
 	ctx.beginPath();
 
-	ctx.moveTo(p.x, p.y);
+	ctx.moveTo(v.x, v.y);
 	ctx.lineTo(lower.x, lower.y);
 	ctx.lineTo(lowerRight.x, lowerRight.y);
 	ctx.lineTo(right.x, right.y);
@@ -69,26 +70,66 @@ Cloth.prototype.renderSquare = function ( p ) {
 
 };
 
+Cloth.prototype.getClosestPoint = function ( m ) {
+
+	var dist, minPoint, minDist = 100000;
+	
+	this.points.forEach( function (p) {
+
+		dist = m.minus(p.getCurrent()).length();
+		
+		if ( dist < minDist ) {
+
+			minDist = dist;
+			minPoint = p;
+			
+		}
+		
+	});
+
+	return minPoint;
+};
+
 Cloth.prototype.update = function () {
 
 	this.points.forEach( function ( p ) {
-
-		var i = 3;
-
-		while( i-- ) p.resolve_constraints();
-
-		p.step(0.028);
-
-
+		p.move();
 	});
 
-	var self = this;
-	this.points.forEach( function ( p ) {
+	var i = this.ITERATIONS;
+	for (i; i--;) {
+		this.constraints.forEach( function ( c ) {
+			c.resolve();
+		});
+	}
 
-		self.renderSquare( p );
-
-	});
-
+	this.render();
 };
 
+Cloth.prototype.render = function () {
+
+	var self = this;
+
+	if ( this.RENDER )
+		this.points.forEach( function ( p ) {
+			self.renderSquare( p );
+		});
+
+	if ( this.DRAW_POINTS )
+		this.points.forEach( function ( p ) {
+			p.draw();
+		});
+
+	if ( this.DRAW_CONSTRAINTS )
+		this.constraints.forEach( function ( c ) {
+			c.draw();
+		});
+
+	
+};
+
+Cloth.prototype.ITERATIONS = 3;
+Cloth.prototype.DRAW_POINTS = false;
+Cloth.prototype.DRAW_CONSTRAINTS = true;
+Cloth.prototype.RENDER = true;
 Cloth.prototype.COLOUR = '#9862a4';

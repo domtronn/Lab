@@ -1,21 +1,38 @@
-function Vector( vertices ) {
-	
-	this.vertices = vertices;
-	this.x = vertices[0].x - vertices[1].x;
-	this.y = vertices[0].y - vertices[1].y;
-	this.length = this.calculateLength( vertices );
-	
+
+function Vector( x, y ) {
+  
+  this.x = x;
+  this.y = y;
+
 }
-Vector.prototype.vertex = function ( i ) { return this.vertices[i]; };
 
-Vector.prototype.calculateLength = function ( v ) {
-	
-	return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
-	
-};
+Vector.prototype = {
+  add: function ( v ) {
+    var nx = this.x + v.x,
+        ny = this.y + v.y;
 
-Vector.prototype.dot = function ( v ) {
+    return new Vector( nx, ny );
+  },
 
-	return (( this.x * v.x ) + ( this.y * v.y )) / ( this.length * v.length );
-	
+  minus: function ( v ) {
+    var nx = this.x - v.x,
+        ny = this.y - v.y;
+
+    return new Vector( nx, ny );
+  },
+
+  scale: function ( c ) {
+    var nx = this.x * c,
+        ny = this.y * c;
+
+    return new Vector( nx, ny );
+  },
+
+  length: function () {
+    return Math.sqrt( ( this.x * this.x ) + ( this.y * this.y ) );
+  },
+
+	dot: function ( v ) {
+		return (( this.x * v.x ) + ( this.y * v.y )) / ( this.length() * v.length() );	
+	}
 };
