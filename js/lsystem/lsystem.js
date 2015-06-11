@@ -57,7 +57,7 @@ function LSystem( axiom ) {
 
 }
 
-LSystem.prototype.BASE_COLOUR = '#b4f200';
+LSystem.prototype.BASE_COLOUR = '#73aa3c';
 LSystem.prototype.DEBUG = false;
 LSystem.prototype.COLOURFUL = false;
 LSystem.prototype.MOUSE_LIMIT = 10;
