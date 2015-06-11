@@ -1,3 +1,8 @@
+function darken( color, p ) {
+	var num = parseInt(color.slice(1),16), amt = Math.round(2.55 * p), R = (num >> 16) + amt, G = (num >> 8 & 0x00FF) + amt, B = (num & 0x0000FF) + amt;
+  return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
+};
+
 var Cloth = function (width, height, spacing) {
 
 	this.points = [ ];
@@ -37,10 +42,10 @@ var Cloth = function (width, height, spacing) {
 Cloth.prototype.renderSquare = function ( p ) {
 
 	var i = this.points.indexOf( p ) + 1,
-			row = Math.floor( i / cloth.width ),
-			col = i - ( row * cloth.width );
+			row = Math.floor( i / this.width ),
+			col = i - ( row * this.width );
 
-	if (!( col % cloth.width) || (row === cloth.height - 1))
+	if (!( col % this.width) || (row === this.height - 1))
 		return;
 
 	var lower = this.points[ ((row + 1) * this.width) - 1 + col ];
