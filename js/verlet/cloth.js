@@ -3,6 +3,15 @@ function darken( color, p ) {
   return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
 };
 
+function rgb2hex(r, g, b) {
+	return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
+}
+
+function byte2Hex(n) {
+  var nybHexString = "0123456789ABCDEF";
+  return String(nybHexString.substr((n >> 4) & 0x0F,1)) + nybHexString.substr(n & 0x0F,1);
+}
+
 var Cloth = function (width, height, spacing) {
 
 	this.points = [ ];
@@ -63,7 +72,14 @@ Cloth.prototype.renderSquare = function ( p ) {
 	ctx.lineTo(right.x, right.y);
 	ctx.closePath();
 
-	ctx.strokeStyle = ctx.fillStyle = darken(this.COLOUR, 30 - (angle * 30));
+	var color = this.RAINBOW ?
+				rgb2hex(
+					Math.sin((0.3 * col) + 0) * 127 + 128, 
+					Math.sin((0.3 * col) + 2) * 127 + 128, 
+					Math.sin((0.3 * col) + 4) * 127 + 128
+				) : this.COLOUR;
+	
+	ctx.strokeStyle = ctx.fillStyle = darken(color, 30 - (angle * 30));
 
 	ctx.fill();
 	ctx.stroke();
@@ -132,4 +148,5 @@ Cloth.prototype.ITERATIONS = 3;
 Cloth.prototype.DRAW_POINTS = false;
 Cloth.prototype.DRAW_CONSTRAINTS = true;
 Cloth.prototype.RENDER = true;
+Cloth.prototype.RAINBOW = true;
 Cloth.prototype.COLOUR = '#9862a4';
