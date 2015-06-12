@@ -46,28 +46,33 @@ function toggleConstraints() { Cloth.prototype.DRAW_CONSTRAINTS = !Cloth.prototy
 function togglePoints() { Cloth.prototype.DRAW_POINTS = !Cloth.prototype.DRAW_POINTS; }
 function toggleRainbow() { Cloth.prototype.RAINBOW = !Cloth.prototype.RAINBOW; }
 
-var s1 = new Slider('#width',{ min:1, max:81, step:4});
+var s1 = new Slider('#width',{ min:1, max:80, step:4, value: Cloth.prototype.WIDTH});
 s1.on('change', function (v) {
 	Cloth.prototype.WIDTH = v.newValue;
 	cloth = new Cloth();
 });
 
-var s2 = new Slider('#height',{ min:1, max:80, step:1});
+var s2 = new Slider('#height',{ min:1, max:80, step:1, value: Cloth.prototype.HEIGHT});
 s2.on('change', function (v) {
 	Cloth.prototype.HEIGHT = v.newValue;
 	cloth = new Cloth();
 });
 
-
-var s3 = new Slider('#hspacing',{ min:1, max:60, step:1});
+var s3 = new Slider('#spacing',{ min:1, max:60, step:1, value: Cloth.prototype.SPACING});
 s3.on('change', function (v) {
-	Cloth.prototype.SPACING.x = v.newValue;
+	Cloth.prototype.SPACING = v.newValue;
 	cloth = new Cloth();
 });
 
-var s4 = new Slider('#vspacing',{ min:1, max:60, step:1});
+var s4 = new Slider('#pinwidth',{ min:1, max:10, step:1, value: Cloth.prototype.PIN_WIDTH});
 s4.on('change', function (v) {
-	Cloth.prototype.SPACING.y = v.newValue;
+	Cloth.prototype.PIN_WIDTH = v.newValue;
+	cloth = new Cloth();
+});
+
+var s5 = new Slider('#offset',{ min:0, max:3, step:0.05, value: Cloth.prototype.OFFSET});
+s5.on('change', function (v) {
+	Cloth.prototype.OFFSET = v.newValue;
 	cloth = new Cloth();
 });
 
