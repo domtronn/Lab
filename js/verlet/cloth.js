@@ -32,8 +32,10 @@ var Cloth = function (width, height, spacing) {
 			if ( j !== 0 )
 				this.constraints.push(new Constraint(p, this.points[ ( ( j - 1 ) * this.WIDTH ) + i ] ) );
 
+			( i === 0 || i === (this.WIDTH - 1) ) && p.pin();
+			
 			this.CURTAINS ?
-				j === 0 && i % Math.floor( this.WIDTH / 4 ) === 0 && p.pin() :
+				j === 0 && i % Math.floor( this.WIDTH / this.PIN_WIDTH ) === 0 && p.pin() :
 				j === 0 && p.pin();
 
 			this.points.push( p );
@@ -144,6 +146,8 @@ Cloth.prototype.render = function () {
 Cloth.prototype.WIDTH = 61;
 Cloth.prototype.HEIGHT = 10;
 Cloth.prototype.SPACING = { x: 10, y: 30 };
+
+Cloth.prototype.PIN_WIDTH = 5;
 
 Cloth.prototype.CURTAINS = true;
 Cloth.prototype.OFFSET = 1;
