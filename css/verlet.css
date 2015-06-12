@@ -5,3 +5,9 @@
   font-size: 30px;
   font-weight: 100;
   opacity: 0.3; }
+
+#color-picker {
+  margin: auto; }
+
+.color-picker-container {
+  padding: 0 10px; }
