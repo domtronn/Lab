@@ -19,6 +19,15 @@
 	<input id="offset" class="slider"/>
 </p>
 
+<p>
+	<span class="title"> Colour : </span>
+	<div class="color-picker-container">
+    <input id="color-picker" type="text" value="#9862a4"
+			class="form-control color {hash:true,caps:false,onImmediateChange:'setColor(this);'}"
+		/>
+	</div>
+</p>
+
 <ul>
 	<li>
 		<button onclick="togglePoints()" class="control-button btn btn-default">TOGGLE <b>P</b>OINTS</button>
