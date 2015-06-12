@@ -7,12 +7,16 @@
 	<input id="height" class="slider"/>
 </p>
 <p>
-	<span class="title">Horizontal Spacing : </span>
-	<input id="hspacing" class="slider"/>
+	<span class="title">Spacing : </span>
+	<input id="spacing" class="slider"/>
 </p>
 <p>
-	<span class="title">Veritcal Spacing : </span>
-	<input id="vspacing" class="slider"/>
+	<span class="title"> Pin Width : </span>
+	<input id="pinwidth" class="slider"/>
+</p>
+<p>
+	<span class="title"> Offset : </span>
+	<input id="offset" class="slider"/>
 </p>
 
 <ul>
