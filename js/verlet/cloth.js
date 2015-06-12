@@ -12,7 +12,7 @@ function byte2Hex(n) {
   return String(nybHexString.substr((n >> 4) & 0x0F,1)) + nybHexString.substr(n & 0x0F,1);
 }
 
-var Cloth = function (width, height, spacing) {
+var Cloth = function () {
 
 	this.points = [ ];
 	this.constraints = [ ];
@@ -146,13 +146,11 @@ Cloth.prototype.render = function () {
 
 };
 
-Cloth.prototype.WIDTH = 61;
-Cloth.prototype.HEIGHT = 10;
-Cloth.prototype.SPACING = { x: 10, y: 30 };
+Cloth.prototype.WIDTH = 30;
+Cloth.prototype.HEIGHT = 30;
+Cloth.prototype.SPACING = 20;
 
-Cloth.prototype.PIN_WIDTH = 5;
-
-Cloth.prototype.CURTAINS = true;
+Cloth.prototype.PIN_WIDTH = 10;
 Cloth.prototype.OFFSET = 1;
 
 Cloth.prototype.ITERATIONS = 2;
