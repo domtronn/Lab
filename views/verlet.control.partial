@@ -1,3 +1,20 @@
+<p>
+	<span class="title">Width : </span>
+	<input id="width" class="slider"/>
+</p>
+<p>
+	<span class="title">Height : </span>
+	<input id="height" class="slider"/>
+</p>
+<p>
+	<span class="title">Horizontal Spacing : </span>
+	<input id="hspacing" class="slider"/>
+</p>
+<p>
+	<span class="title">Veritcal Spacing : </span>
+	<input id="vspacing" class="slider"/>
+</p>
+
 <ul>
 	<li>
 		<button onclick="togglePoints()" class="control-button btn btn-default">TOGGLE <b>P</b>OINTS</button>
