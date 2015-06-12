@@ -157,5 +157,5 @@ Cloth.prototype.ITERATIONS = 2;
 Cloth.prototype.DRAW_POINTS = false;
 Cloth.prototype.DRAW_CONSTRAINTS = true;
 Cloth.prototype.RENDER = true;
-Cloth.prototype.RAINBOW = true;
+Cloth.prototype.RAINBOW = false;
 Cloth.prototype.COLOUR = '#9862a4';
