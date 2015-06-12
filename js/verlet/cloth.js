@@ -32,11 +32,14 @@ var Cloth = function (width, height, spacing) {
 			if ( j !== 0 )
 				this.constraints.push(new Constraint(p, this.points[ ( ( j - 1 ) * this.WIDTH ) + i ] ) );
 
-			( i === 0 || i === (this.WIDTH - 1) ) && p.pin();
 			
-			this.CURTAINS ?
-				j === 0 && i % Math.floor( this.WIDTH / this.PIN_WIDTH ) === 0 && p.pin() :
-				j === 0 && p.pin();
+			// If first or last corner
+			if (j === 0 && (i === 0 || i === (this.WIDTH - 1) ))
+				p.pin();
+			
+			// If modulo pin width 
+			if (j === 0 && i % Math.floor( this.PIN_WIDTH ) === 0)
+				p.pin();
 
 			this.points.push( p );
 
