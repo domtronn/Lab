@@ -17,12 +17,12 @@ var Cloth = function (width, height, spacing) {
 	this.points = [ ];
 	this.constraints = [ ];
 	
-	var start_x = (ctx.canvas.width / 2) - ((this.WIDTH * this.SPACING.x) / 2),
+	var start_x = (ctx.canvas.width / 2) - ((this.WIDTH * this.SPACING) / 2),
 			start_y = 60;
 
-	for (var j = 0, y = start_y; j < this.HEIGHT; j++, y += this.SPACING.y) {
+	for (var j = 0, y = start_y; j < this.HEIGHT; j++, y += this.SPACING) {
 
-		for (var i = 0, x = start_x; i < this.WIDTH; i++, x += this.SPACING.x) {
+		for (var i = 0, x = start_x; i < this.WIDTH; i++, x += this.SPACING) {
 						
 			var p = new Point(x, y + ((( this.WIDTH / 2 ) - Math.abs( i - ( this.WIDTH / 2 ) )) *  this.OFFSET));
 
