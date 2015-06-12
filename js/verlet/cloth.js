@@ -16,27 +16,25 @@ var Cloth = function (width, height, spacing) {
 
 	this.points = [ ];
 	this.constraints = [ ];
-	this.spacing = spacing;
-	this.width = width;
-	this.height = height;
-
-	var start_x = (ctx.canvas.width / 2) - ((width * spacing.x) / 2),
+	
+	var start_x = (ctx.canvas.width / 2) - ((this.WIDTH * this.SPACING.x) / 2),
 			start_y = 60;
 
-	for (var j = 0, y = start_y; j < height; j++, y += spacing.y) {
+	for (var j = 0, y = start_y; j < this.HEIGHT; j++, y += this.SPACING.y) {
 
-		for (var i = 0, x = start_x; i < width; i++, x += spacing.x) {
-
-			var p = new Point(x, y + ((( width / 2 ) - Math.abs( i - ( width / 2 ) )) * 2));
+		for (var i = 0, x = start_x; i < this.WIDTH; i++, x += this.SPACING.x) {
+						
+			var p = new Point(x, y + ((( this.WIDTH / 2 ) - Math.abs( i - ( this.WIDTH / 2 ) )) *  this.OFFSET));
 
 			if ( i !== 0 )
 				this.constraints.push(new Constraint(p, this.points[ this.points.length - 1 ] ) );
 
 			if ( j !== 0 )
-				this.constraints.push(new Constraint(p, this.points[ ( ( j - 1 ) * width ) + i ] ) );
-				
-			j === 0 &&
-				i % Math.floor( width / 4 ) === 0 && p.pin();
+				this.constraints.push(new Constraint(p, this.points[ ( ( j - 1 ) * this.WIDTH ) + i ] ) );
+
+			this.CURTAINS ?
+				j === 0 && i % Math.floor( this.WIDTH / 4 ) === 0 && p.pin() :
+				j === 0 && p.pin();
 
 			this.points.push( p );
 
@@ -49,16 +47,16 @@ var Cloth = function (width, height, spacing) {
 Cloth.prototype.renderSquare = function ( p ) {
 
 	var i = this.points.indexOf( p ) + 1,
-			row = Math.floor( i / this.width ),
-			col = i - ( row * this.width );
+			row = Math.floor( i / this.WIDTH ),
+			col = i - ( row * this.WIDTH );
 
-	if (!( col % this.width) || (row === this.height - 1))
+	if (!( col % this.WIDTH) || (row === this.HEIGHT - 1))
 		return;
 	
 	var v = p.getCurrent();
-	var lower = this.points[ ((row + 1) * this.width) - 1 + col ].getCurrent();
-	var right = this.points[ ((row ) * this.width) + col ].getCurrent();
-	var lowerRight = this.points[ ((row + 1) * this.width) + col ].getCurrent();
+	var lower = this.points[ ((row + 1) * this.WIDTH) - 1 + col ].getCurrent();
+	var right = this.points[ ((row ) * this.WIDTH) + col ].getCurrent();
+	var lowerRight = this.points[ ((row + 1) * this.WIDTH) + col ].getCurrent();
 
 	var angle = Math.abs(
 		v.minus(lower).dot(v.minus(right))
@@ -141,10 +139,16 @@ Cloth.prototype.render = function () {
 			c.draw();
 		});
 
-	
 };
 
-Cloth.prototype.ITERATIONS = 3;
+Cloth.prototype.WIDTH = 61;
+Cloth.prototype.HEIGHT = 10;
+Cloth.prototype.SPACING = { x: 10, y: 30 };
+
+Cloth.prototype.CURTAINS = true;
+Cloth.prototype.OFFSET = 1;
+
+Cloth.prototype.ITERATIONS = 2;
 Cloth.prototype.DRAW_POINTS = false;
 Cloth.prototype.DRAW_CONSTRAINTS = true;
 Cloth.prototype.RENDER = true;
