@@ -4,7 +4,7 @@ function Point( x, y ) {
   this.previous = new Vector(x, y);
   
   this.pinned = false;
-  this.acc = (new Vector(0.0, 5)).scale(0.05 * 0.05);
+  this.acc = (new Vector(0.0, 0.5)).scale(0.1);
 
 }
 
@@ -33,7 +33,7 @@ Point.prototype = {
     
 		if ( !this.pinned ) {
     
-      var newPos = this.current.scale(2).minus(this.previous).add(this.acc);
+      var newPos = this.current.scale(1.99).minus(this.previous.scale(0.99)).add(this.acc);
 
       this.setPrevious( this.current );
       this.setCurrent( newPos );
