@@ -76,12 +76,21 @@ s5.on('change', function (v) {
 	cloth = new Cloth();
 });
 
-function setFPSCounter( fps ) {
+function setColor( color ) {
+  Cloth.prototype.COLOUR = '#' + color.toString();
+}
 
+function setFPSCounter( fps ) {
 	var fpsCounter = document.getElementById( 'fps-counter' );
 	fpsCounter.textContent = fps;
-	
 }
+
+document.addEventListener( 'keydown', function (e) {
+	if (e.keyCode === 67) {
+		document.getElementById('color-picker').color.hidePicker();
+		document.getElementById('canvas').focus();
+	}
+});
 
 
 (function animLoop() {
